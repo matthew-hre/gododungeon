@@ -1,0 +1,8 @@
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.csprojAssemblyReference.cache
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.csproj.CoreCompileInputs.cache
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.AssemblyInfoInputs.cache
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.AssemblyInfo.cs
+C:\Users\potat\Desktop\gododungeon\.mono\temp\bin\Debug\gododungeon.dll
+C:\Users\potat\Desktop\gododungeon\.mono\temp\bin\Debug\gododungeon.pdb
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.dll
+C:\Users\potat\Desktop\gododungeon\.mono\temp\obj\Debug\gododungeon.pdb
