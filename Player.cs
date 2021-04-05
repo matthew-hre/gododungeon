@@ -1,28 +1,40 @@
 using Godot;
 using System;
+using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 
-public class Player : Node2D
+public class Player : Area2D
 {
-	public Vector2 pos = new Vector2();
+	int tileSize = 8;
+	String[] inputs = { "move_right", "move_left", "move_up", "move_down" };
+	Vector2[] dirs = { new Vector2(1, 0), new Vector2(-1, 0), new Vector2(0, -1), new Vector2(0, 1) };
 	
-	public void GetInput() 
+	public override void _Ready()
 	{
-		pos = GetPosition();
-		
-		if(Input.IsActionJustPressed("move_right")) {
-			pos.x += 8;
-		} else if(Input.IsActionJustPressed("move_left")) {
-			pos.x -= 8;
-		} else if(Input.IsActionJustPressed("move_up")) {
-			pos.y -= 8;
-		} else if(Input.IsActionJustPressed("move_down")) {
-			pos.y += 8;
+		Position = Position.Snapped(new Vector2(8, 8));
+	}
+
+	public override void _UnhandledInput(InputEvent @event) {
+		if (@event is InputEventKey eventKey)
+		{
+			for (int i = 0; i < inputs.Length; i++)
+			{
+				if (eventKey.IsActionPressed(inputs[i]))
+				{
+					Move(i);
+				}
+			}
 		}
 	}
-	
-	public override void _PhysicsProcess(float delta) 
+
+	public void Move(int i)
 	{
-		GetInput();
-		SetPosition(pos);
+		RayCast2D ray = ((RayCast2D) GetNode("RayCast2D"));
+		ray.CastTo = dirs[i] * tileSize;
+		ray.ForceRaycastUpdate();
+		if (!ray.IsColliding())
+		{
+			Position += dirs[i] * tileSize;
+		}
 	}
 }
